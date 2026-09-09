@@ -97,17 +97,17 @@ export default function Home() {
       </section>
 
       <section className="contact-section section-shell" id="contato">
-        <div className="contact-top"><span>03 / CONTATO</span><span>VAMOS CONVERSAR</span></div>
+        <div className="contact-top"><span>CONTATO</span><span>VAMOS CONVERSAR</span></div>
         <h2>Tem um projeto em mente?</h2>
         <div className="contact-links">
           <a className="contact-link" href="mailto:gabrielllopesabreusilva@gmail.com">
             <span className="contact-channel">E-MAIL</span>
-            <strong>gabrielllopesabreusilva@gmail.com</strong>
+            <strong>Contato E-mail</strong>
             <span aria-hidden="true">↗</span>
           </a>
           <a className="contact-link" href="https://wa.me/5531972414433" target="_blank" rel="noreferrer">
             <span className="contact-channel">WHATSAPP</span>
-            <strong>+55 31 97241-4433</strong>
+            <strong>Contato no WhatsApp</strong>
             <span aria-hidden="true">↗</span>
           </a>
         </div>

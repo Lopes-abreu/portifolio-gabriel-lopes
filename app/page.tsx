@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <main>
       <header className="site-header">
-        <a className="brand" href="#inicio" aria-label="Ir para o início">GL<span>.</span></a>
+        <a className="brand" href="#inicio" aria-label="Ir para o início">Gabriel Lopes</a>
         <nav className="desktop-nav" aria-label="Navegação principal">
           <a href="#trabalhos">Trabalhos</a><a href="#sobre">Sobre</a><a href="#contato">Contato</a>
         </nav>

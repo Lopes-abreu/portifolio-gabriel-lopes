@@ -260,8 +260,8 @@ section[id] { scroll-margin-top: 88px; }
 }
 .hero-about-lead {
   margin: 24px 0 0;
-  max-width: 18ch;
-  font: 400 clamp(26px, 3.2vw, 44px)/.98 var(--font-plex-condensed);
+  max-width: 24ch;
+  font: 400 clamp(24px, 2.8vw, 38px)/1 var(--font-plex-condensed);
   letter-spacing: -.035em;
   color: var(--white);
   text-transform: uppercase;

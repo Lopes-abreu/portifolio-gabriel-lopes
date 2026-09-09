@@ -52,21 +52,20 @@ export default function Home() {
                 <p>Sobre mim</p>
                 <span>{site.location}</span>
               </div>
-              <p className="hero-about-lead">Transformo problemas de negócio em produtos digitais claros, consistentes e prontos para crescer.</p>
+              <p className="hero-about-lead">Desenvolvedor de sistemas web, do frontend à API.</p>
               <div className="hero-about-focus">
                 <span>Foco de atuação</span>
-                <strong>Produto web · SaaS · Automação</strong>
+                <strong>Sistemas web · APIs · Automação</strong>
               </div>
               <div className="hero-about-columns">
                 <p>
-                  Sou <strong>{site.name}</strong>, desenvolvedor full stack. Construo interfaces,
-                  plataformas e integrações para transformar processos complexos em experiências
-                  mais simples para quem usa.
+                  Sou <strong>{site.name}</strong>, desenvolvedor full stack. Trabalho com React,
+                  Next.js, TypeScript, Node.js e Python para criar interfaces, APIs e plataformas
+                  que resolvem problemas reais.
                 </p>
                 <p>
-                  Trabalho do primeiro rascunho ao deploy, conectando produto, frontend, APIs e
-                  dados. Busco soluções rápidas, acessíveis e fáceis de evoluir — com decisões
-                  técnicas que fazem sentido para o negócio.
+                  Do modelo de dados ao deploy, priorizo código legível, integrações confiáveis e
+                  uma experiência simples para quem usa.
                 </p>
               </div>
               <div className="hero-skills">

@@ -1,8 +1,35 @@
 import Image from 'next/image';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa6';
+import { FaCodeBranch, FaPlug, FaRobot, FaWandMagicSparkles } from 'react-icons/fa6';
+import {
+  SiGit,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiPostgresql,
+  SiPython,
+  SiReact,
+  SiTailwindcss,
+  SiTypescript,
+} from 'react-icons/si';
+import type { IconType } from 'react-icons';
 import Header from '@/app/components/header';
 import SocialRail from '@/app/components/social-rail';
 import { projects, services, site, skills } from '@/app/lib/site';
+
+const skillIcons: Record<string, IconType> = {
+  React: SiReact,
+  'Next.js': SiNextdotjs,
+  TypeScript: SiTypescript,
+  'Node.js': SiNodedotjs,
+  Python: SiPython,
+  'Automação de processos': FaWandMagicSparkles,
+  'Inteligência artificial': FaRobot,
+  'Tailwind CSS': SiTailwindcss,
+  PostgreSQL: SiPostgresql,
+  'APIs REST': FaPlug,
+  Git: SiGit,
+  Laravel: FaCodeBranch,
+};
 
 export default function Home() {
   return (
@@ -20,12 +47,37 @@ export default function Home() {
               <h1>Gabriel<br />Lopes</h1>
               <p className="hero-lead">Projeto e construo <em>para a web.</em></p>
             </div>
-            <aside className="hero-about reveal-up delay-1">
+            <aside className="hero-about reveal-up delay-1" id="sobre">
               <div className="hero-about-heading">
                 <p>Sobre mim</p>
                 <span>{site.location}</span>
               </div>
               <p className="hero-about-lead">Antes de abrir o editor, eu tento entender onde o produto trava.</p>
+              <div className="hero-about-columns">
+                <p>
+                  Sou <strong>{site.name}</strong>, desenvolvedor full stack. Trabalho do primeiro
+                  rascunho ao deploy: estrutura, interface, API, banco de dados e os detalhes que
+                  fazem tudo funcionar junto.
+                </p>
+                <p>
+                  Prefiro decisões que possam ser explicadas, código que outra pessoa consiga manter
+                  e produtos que não precisem disputar a atenção de quem usa.
+                </p>
+              </div>
+              <div className="hero-skills">
+                <span className="hero-skills-title">Tecnologias e ferramentas</span>
+                <ul>
+                  {skills.map((skill) => {
+                    const Icon = skillIcons[skill];
+                    return (
+                      <li key={skill}>
+                        <Icon aria-hidden="true" />
+                        <span>{skill}</span>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
             </aside>
           </div>
           <div className="hero-bottom reveal-up delay-2">
@@ -53,7 +105,7 @@ export default function Home() {
                   <span>{project.year}</span>
                 </div>
                 <a
-                  className="project-visual project-link"
+                  className={`project-visual project-link project-visual--${project.theme}`}
                   href={project.url}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -80,28 +132,6 @@ export default function Home() {
                 </div>
               </article>
             ))}
-          </div>
-        </section>
-
-        <section className="about-section section-shell" id="sobre">
-          <div className="section-heading">
-            <h2><span>02</span> Sobre mim</h2>
-            <p>{site.location}</p>
-          </div>
-          <div className="about-columns">
-            <p>
-              Sou <strong>{site.name}</strong>, desenvolvedor full stack. Trabalho do primeiro
-              rascunho ao deploy: estrutura, interface, API, banco de dados e os detalhes que
-              fazem tudo funcionar junto.
-            </p>
-            <p>
-              Prefiro decisões que possam ser explicadas, código que outra pessoa consiga manter
-              e produtos que não precisem disputar a atenção de quem usa.
-            </p>
-          </div>
-          <div className="skills-block">
-            <span>Tecnologias e ferramentas</span>
-            <ul>{skills.map((skill) => <li key={skill}>{skill}</li>)}</ul>
           </div>
         </section>
 

@@ -34,6 +34,7 @@ export const projects = [
     year: '2026',
     role: 'Produto web institucional',
     image: '/projects-consultoria-multipla.png',
+    theme: 'multipla',
     url: 'https://consultoriamultipla.com/',
   },
   {
@@ -45,6 +46,7 @@ export const projects = [
     year: '2026',
     role: 'Plataforma SaaS',
     image: '/projects-nexo.png',
+    theme: 'nexo',
     url: 'https://nexocomportamental.com.br/',
   },
 ] as const;
@@ -56,6 +58,7 @@ export const skills = [
   'Node.js',
   'Python',
   'Automação de processos',
+  'Inteligência artificial',
   'Tailwind CSS',
   'PostgreSQL',
   'APIs REST',

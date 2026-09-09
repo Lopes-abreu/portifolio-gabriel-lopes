@@ -1,9 +1,25 @@
+import Image from 'next/image';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa6';
 
 const projects = [
-  { number: '01', title: 'Atlas Finance', description: 'Plataforma financeira com visão consolidada de indicadores, automações e relatórios para apoiar decisões em tempo real.', tags: ['React', 'TypeScript', 'Node.js'], year: '2026', tone: 'light' },
-  { number: '02', title: 'Nexo Commerce', description: 'Experiência de compra direta e acessível, criada para reduzir atritos do catálogo ao pagamento.', tags: ['Next.js', 'Tailwind CSS', 'PostgreSQL'], year: '2025', tone: 'dark' },
-  { number: '03', title: 'Fluxo Workspace', description: 'Ambiente colaborativo para equipes organizarem projetos, conversas e entregas em um único lugar.', tags: ['React', 'API REST', 'Design System'], year: '2025', tone: 'mid' },
+  {
+    number: '01',
+    title: 'Múltipla Contabilidade & Consultoria',
+    description: 'Landing page institucional com blog e ecossistema do App Múltipla para uma contabilidade consultiva especializada em e-commerce.',
+    tags: ['React', 'Vite', 'Blog', 'App Múltipla'],
+    year: '2026',
+    image: '/projects-consultoria-multipla.png',
+    url: 'https://consultoriamultipla.com/',
+  },
+  {
+    number: '02',
+    title: 'NEXO Inteligência Comportamental',
+    description: 'Plataforma SaaS para avaliações comportamentais, dashboards de equipes, recrutamento e gestão de pessoas com perfis DISC.',
+    tags: ['React', 'Laravel', 'MySQL', 'DISC'],
+    year: '2026',
+    image: '/projects-nexo.png',
+    url: 'https://nexocomportamental.com.br/',
+  },
 ];
 
 const skills = ['React', 'Next.js', 'TypeScript', 'Node.js', 'Python', 'Automação de processos', 'Tailwind CSS', 'PostgreSQL', 'APIs REST', 'Git'];
@@ -34,23 +50,31 @@ export default function Home() {
       </section>
 
       <section className="projects-section section-shell" id="trabalhos">
-        <div className="section-heading"><span>TRABALHOS SELECIONADOS</span><span>03 PROJETOS</span></div>
+        <div className="section-heading"><span>TRABALHOS SELECIONADOS</span><span>02 PROJETOS</span></div>
         <div className="projects-list">
           {projects.map((project) => (
             <article className="project-row" key={project.title}>
               <div className="project-number">{project.number}</div>
-              <div className={`project-visual ${project.tone}`}>
-                <div className="project-poster">
-                  <span className="poster-index">CASE / {project.number}</span>
-                  <strong>{project.title}</strong>
-                  <div className="poster-footer"><span>{project.year}</span><span>WEB DEVELOPMENT</span></div>
-                </div>
-              </div>
+              <a
+                className="project-visual project-link"
+                href={project.url}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`Abrir o site ${project.title}`}
+              >
+                <Image
+                  src={project.image}
+                  alt={`Prévia do site ${project.title}`}
+                  fill
+                  sizes="(max-width: 900px) 100vw, 45vw"
+                  className="project-image"
+                />
+              </a>
               <div className="project-info">
                 <div><p>{project.year}</p><h2>{project.title}</h2></div>
                 <p className="project-description">{project.description}</p>
                 <ul aria-label="Tecnologias utilizadas">{project.tags.map((tag) => <li key={tag}>{tag}</li>)}</ul>
-                <a href="#contato" aria-label={`Conversar sobre ${project.title}`}>Ver detalhes <span aria-hidden="true">↗</span></a>
+                <a href={project.url} target="_blank" rel="noreferrer" aria-label={`Visitar o site ${project.title}`}>Visitar site <span aria-hidden="true">↗</span></a>
               </div>
             </article>
           ))}

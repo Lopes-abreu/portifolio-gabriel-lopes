@@ -29,9 +29,9 @@ a { color: inherit; text-decoration: none; }
 .projects-list { display: flex; flex-direction: column; }
 .project-row { display: grid; grid-template-columns: 36px minmax(300px, .92fr) minmax(280px, 1.08fr); gap: clamp(24px, 4vw, 68px); padding-block: 62px; border-bottom: 1px solid #aaa9a4; }
 .project-number { font: 10px var(--font-plex-mono); color: #686965; padding-top: 4px; }
-.project-visual { position: relative; min-height: 330px; display: block; overflow: hidden; background: #0d1b3e; }
-.project-image { object-fit: contain; transition: transform .35s ease, filter .35s ease; }
-.project-link:hover .project-image { transform: scale(1.04); filter: saturate(1.08); }
+.project-visual { position: relative; min-height: 330px; display: block; overflow: hidden; background: #202020; }
+.project-image { object-fit: contain; filter: grayscale(1) contrast(.78) brightness(.82); transition: transform .35s ease, filter .35s ease; }
+.project-link:hover .project-image { transform: scale(1.04); filter: grayscale(1) contrast(.88) brightness(.9); }
 .project-info { display: flex; flex-direction: column; align-items: flex-start; }
 .project-info > div > p { margin: 0 0 14px; font: 9px var(--font-plex-mono); color: #6d6e6a; }
 .project-info h2 { margin: 0; font-family: var(--font-plex-condensed); font-size: clamp(39px, 4.3vw, 66px); letter-spacing: -.035em; font-weight: 500; }

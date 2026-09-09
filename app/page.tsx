@@ -1,133 +1,170 @@
 import Image from 'next/image';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa6';
-
-const projects = [
-  {
-    number: '01',
-    title: 'Múltipla Contabilidade & Consultoria',
-    description: 'Landing page institucional com blog e ecossistema do App Múltipla para uma contabilidade consultiva especializada em e-commerce.',
-    tags: ['React', 'Vite', 'Blog', 'App Múltipla'],
-    year: '2026',
-    image: '/projects-consultoria-multipla.png',
-    url: 'https://consultoriamultipla.com/',
-  },
-  {
-    number: '02',
-    title: 'NEXO Inteligência Comportamental',
-    description: 'Plataforma SaaS para avaliações comportamentais, dashboards de equipes, recrutamento e gestão de pessoas com perfis DISC.',
-    tags: ['React', 'Laravel', 'MySQL', 'DISC'],
-    year: '2026',
-    image: '/projects-nexo.png',
-    url: 'https://nexocomportamental.com.br/',
-  },
-];
-
-const skills = ['React', 'Next.js', 'TypeScript', 'Node.js', 'Python', 'Automação de processos', 'Tailwind CSS', 'PostgreSQL', 'APIs REST', 'Git'];
+import Header from '@/app/components/header';
+import SocialRail from '@/app/components/social-rail';
+import { projects, services, site, skills } from '@/app/lib/site';
 
 export default function Home() {
   return (
-    <main>
-      <header className="site-header">
-        <a className="brand" href="#inicio" aria-label="Ir para o início">Gabriel Lopes</a>
-        <nav className="desktop-nav" aria-label="Navegação principal">
-          <a href="#trabalhos">Trabalhos</a><a href="#sobre">Sobre</a><a href="#contato">Contato</a>
-        </nav>
-        <a className="availability" href="#contato"><span aria-hidden="true" /> Disponível para projetos</a>
-      </header>
+    <>
+      <a className="skip-link" href="#inicio">Pular para o conteúdo</a>
+      <Header />
+      <SocialRail />
 
-      <section className="hero section-shell" id="inicio">
-        <div className="eyebrow reveal-up">PORTFÓLIO / 2026</div>
-        <div className="hero-grid">
-          <div className="hero-copy reveal-up delay-1">
-            <h1>Projeto e construo <em>para a web.</em></h1>
-            <div className="hero-bottom">
-              <p>Escrevo interfaces, integrações e sistemas web. Gosto do que carrega rápido, explica-se sozinho e continua simples depois de crescer.</p>
-              <a className="text-link" href="#trabalhos">Ver projetos <span aria-hidden="true">↘</span></a>
+      <main>
+        <section className="hero section-shell" id="inicio">
+          <div className="hero-grid">
+            <div className="hero-copy reveal-up">
+              <p className="eyebrow">Portfólio / 2026</p>
+              <p className="hero-role">{site.role}</p>
+              <h1>Gabriel<br />Lopes</h1>
+              <p className="hero-lead">Projeto e construo <em>para a web.</em></p>
             </div>
-          </div>
-        </div>
-        <div className="hero-index"><span>GABRIEL LOPES</span><span>MINAS GERAIS, BR</span></div>
-      </section>
-
-      <section className="projects-section section-shell" id="trabalhos">
-        <div className="section-heading"><span>TRABALHOS SELECIONADOS</span><span>02 PROJETOS</span></div>
-        <div className="projects-list">
-          {projects.map((project) => (
-            <article className="project-row" key={project.title}>
-              <div className="project-number">{project.number}</div>
-              <a
-                className="project-visual project-link"
-                href={project.url}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={`Abrir o site ${project.title}`}
-              >
-                <Image
-                  src={project.image}
-                  alt={`Prévia do site ${project.title}`}
-                  fill
-                  sizes="(max-width: 900px) 100vw, 45vw"
-                  className="project-image"
-                />
-              </a>
-              <div className="project-info">
-                <div><p>{project.year}</p><h2>{project.title}</h2></div>
-                <p className="project-description">{project.description}</p>
-                <ul aria-label="Tecnologias utilizadas">{project.tags.map((tag) => <li key={tag}>{tag}</li>)}</ul>
-                <a href={project.url} target="_blank" rel="noreferrer" aria-label={`Visitar o site ${project.title}`}>Visitar site <span aria-hidden="true">↗</span></a>
+            <aside className="hero-about reveal-up delay-1">
+              <div className="hero-about-heading">
+                <p>Sobre mim</p>
+                <span>{site.location}</span>
               </div>
-            </article>
-          ))}
-        </div>
-      </section>
+              <p className="hero-about-lead">Antes de abrir o editor, eu tento entender onde o produto trava.</p>
+            </aside>
+          </div>
+          <div className="hero-bottom reveal-up delay-2">
+            <p>
+              Escrevo interfaces, integrações e sistemas web. Gosto do que carrega rápido,
+              explica-se sozinho e continua simples depois de crescer.
+            </p>
+          </div>
+          <div className="hero-index">
+            <span>{site.name.toUpperCase()}</span>
+            <span>{site.location.toUpperCase()}</span>
+          </div>
+        </section>
 
-      <section className="about-section section-shell" id="sobre">
-        <div className="about-label"><span>02</span><p>SOBRE MIM</p></div>
-        <div className="about-content">
-          <p className="about-lead">Antes de abrir o editor, eu tento entender onde o produto trava.</p>
+        <section className="projects-section section-shell" id="trabalhos">
+          <div className="section-heading">
+            <h2><span>01</span> Trabalhos selecionados</h2>
+            <p>{String(projects.length).padStart(2, '0')} projetos</p>
+          </div>
+          <div className="projects-list">
+            {projects.map((project) => (
+              <article className="project-row" key={project.title}>
+                <div className="project-meta">
+                  <span>{project.number}</span>
+                  <span>{project.year}</span>
+                </div>
+                <a
+                  className="project-visual project-link"
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Abrir o site ${project.title}`}
+                >
+                  <Image
+                    src={project.image}
+                    alt={`Prévia do site ${project.title}`}
+                    fill
+                    sizes="(max-width: 900px) 100vw, 48vw"
+                    className="project-image"
+                  />
+                </a>
+                <div className="project-info">
+                  <p>{project.role}</p>
+                  <h3>{project.title}</h3>
+                  <p className="project-description">{project.description}</p>
+                  <ul aria-label="Tecnologias utilizadas">
+                    {project.tags.map((tag) => <li key={tag}>{tag}</li>)}
+                  </ul>
+                  <a href={project.url} target="_blank" rel="noopener noreferrer">
+                    Visitar site <span aria-hidden="true">↗</span>
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="about-section section-shell" id="sobre">
+          <div className="section-heading">
+            <h2><span>02</span> Sobre mim</h2>
+            <p>{site.location}</p>
+          </div>
           <div className="about-columns">
-            <p>Sou <strong>Gabriel Lopes</strong>, desenvolvedor full stack. Trabalho do primeiro rascunho ao deploy: estrutura, interface, API, banco de dados e os detalhes que fazem tudo funcionar junto.</p>
-            <p>Prefiro decisões que possam ser explicadas, código que outra pessoa consiga manter e produtos que não precisem disputar a atenção de quem usa.</p>
+            <p>
+              Sou <strong>{site.name}</strong>, desenvolvedor full stack. Trabalho do primeiro
+              rascunho ao deploy: estrutura, interface, API, banco de dados e os detalhes que
+              fazem tudo funcionar junto.
+            </p>
+            <p>
+              Prefiro decisões que possam ser explicadas, código que outra pessoa consiga manter
+              e produtos que não precisem disputar a atenção de quem usa.
+            </p>
           </div>
           <div className="skills-block">
-            <span>TECNOLOGIAS E FERRAMENTAS</span>
+            <span>Tecnologias e ferramentas</span>
             <ul>{skills.map((skill) => <li key={skill}>{skill}</li>)}</ul>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="contact-section section-shell" id="contato">
-        <div className="contact-top"><span>CONTATO</span><span>VAMOS CONVERSAR</span></div>
-        <h2>Tem um projeto em mente?</h2>
-        <div className="contact-links">
-          <a className="contact-link" href="mailto:gabrielllopesabreusilva@gmail.com">
-            <span className="contact-channel">E-MAIL</span>
-            <strong>Contato E-mail</strong>
-            <span aria-hidden="true">↗</span>
-          </a>
-          <a className="contact-link" href="https://wa.me/5531972414433" target="_blank" rel="noreferrer">
-            <span className="contact-channel">WHATSAPP</span>
-            <strong>Contato no WhatsApp</strong>
-            <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-        <div className="social-links" aria-label="Redes profissionais">
-          <a href="https://github.com/Lopes-abreu" target="_blank" rel="noreferrer" aria-label="Abrir GitHub de Gabriel Lopes">
-            <FaGithub aria-hidden="true" />
-            <span><small>GITHUB</small><strong>@Lopes-abreu</strong></span>
-            <i aria-hidden="true">↗</i>
-          </a>
-          <a href="https://www.linkedin.com/in/gabriellopesabreu/" target="_blank" rel="noreferrer" aria-label="Abrir LinkedIn de Gabriel Lopes">
-            <FaLinkedinIn aria-hidden="true" />
-            <span><small>LINKEDIN</small><strong>/in/gabriellopesabreu</strong></span>
-            <i aria-hidden="true">↗</i>
-          </a>
-        </div>
-        <footer>
-          <p>© 2026 GABRIEL LOPES</p>
-          <a href="#inicio">Voltar ao topo ↑</a>
-        </footer>
-      </section>
-    </main>
+        <section className="services-section section-shell" id="servicos">
+          <div className="section-heading">
+            <h2><span>03</span> Como posso ajudar</h2>
+            <p>Do rascunho ao deploy</p>
+          </div>
+          <div className="services-grid">
+            {services.map((service) => (
+              <article className="service-card" key={service.title}>
+                <span>{service.number}</span>
+                <h3>{service.title}</h3>
+                <p>{service.description}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="contact-section section-shell" id="contato">
+          <div className="section-heading">
+            <h2><span>04</span> Contato</h2>
+            <p>Vamos conversar</p>
+          </div>
+          <p className="contact-lead">Tem um projeto em mente?</p>
+          <div className="contact-links">
+            <a className="contact-link" href={`mailto:${site.email}`}>
+              <span className="contact-channel">E-mail</span>
+              <strong>{site.email}</strong>
+              <span aria-hidden="true">↗</span>
+            </a>
+            <a className="contact-link" href={site.whatsapp.href} target="_blank" rel="noopener noreferrer">
+              <span className="contact-channel">WhatsApp</span>
+              <strong>{site.whatsapp.label}</strong>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+          <div className="social-links" aria-label="Redes profissionais">
+            <a href={site.github.href} target="_blank" rel="noopener noreferrer" aria-label="Abrir GitHub de Gabriel Lopes">
+              <FaGithub aria-hidden="true" />
+              <span>
+                <small>GitHub</small>
+                <strong>{site.github.label}</strong>
+              </span>
+              <i aria-hidden="true">↗</i>
+            </a>
+            <a href={site.linkedin.href} target="_blank" rel="noopener noreferrer" aria-label="Abrir LinkedIn de Gabriel Lopes">
+              <FaLinkedinIn aria-hidden="true" />
+              <span>
+                <small>LinkedIn</small>
+                <strong>{site.linkedin.label}</strong>
+              </span>
+              <i aria-hidden="true">↗</i>
+            </a>
+          </div>
+        </section>
+      </main>
+
+      <footer className="site-footer section-shell">
+        <p>© {new Date().getFullYear()} {site.name}</p>
+        <p>{site.role} · {site.location}</p>
+        <a href="#inicio">Voltar ao topo ↑</a>
+      </footer>
+    </>
   );
 }

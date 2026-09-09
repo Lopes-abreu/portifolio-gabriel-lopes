@@ -52,16 +52,21 @@ export default function Home() {
                 <p>Sobre mim</p>
                 <span>{site.location}</span>
               </div>
-              <p className="hero-about-lead">Antes de abrir o editor, eu tento entender onde o produto trava.</p>
+              <p className="hero-about-lead">Transformo problemas de negócio em produtos digitais claros, consistentes e prontos para crescer.</p>
+              <div className="hero-about-focus">
+                <span>Foco de atuação</span>
+                <strong>Produto web · SaaS · Automação</strong>
+              </div>
               <div className="hero-about-columns">
                 <p>
-                  Sou <strong>{site.name}</strong>, desenvolvedor full stack. Trabalho do primeiro
-                  rascunho ao deploy: estrutura, interface, API, banco de dados e os detalhes que
-                  fazem tudo funcionar junto.
+                  Sou <strong>{site.name}</strong>, desenvolvedor full stack. Construo interfaces,
+                  plataformas e integrações para transformar processos complexos em experiências
+                  mais simples para quem usa.
                 </p>
                 <p>
-                  Prefiro decisões que possam ser explicadas, código que outra pessoa consiga manter
-                  e produtos que não precisem disputar a atenção de quem usa.
+                  Trabalho do primeiro rascunho ao deploy, conectando produto, frontend, APIs e
+                  dados. Busco soluções rápidas, acessíveis e fáceis de evoluir — com decisões
+                  técnicas que fazem sentido para o negócio.
                 </p>
               </div>
               <div className="hero-skills">

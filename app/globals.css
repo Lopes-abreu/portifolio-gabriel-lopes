@@ -266,8 +266,30 @@ section[id] { scroll-margin-top: 88px; }
   color: var(--white);
   text-transform: uppercase;
 }
+.hero-about-focus {
+  margin-top: 28px;
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.hero-about-focus span {
+  flex: 0 0 auto;
+  color: var(--mute);
+  font: 9px var(--font-plex-mono);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.hero-about-focus strong {
+  color: var(--paper);
+  font: 500 10px var(--font-plex-mono);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
 .hero-about-columns {
-  margin-top: 32px;
+  margin-top: 24px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: clamp(20px, 3vw, 48px);
